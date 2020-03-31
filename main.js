@@ -13,6 +13,7 @@ var fieldAfterPos = document.getElementById('pos-after');
 //Declare variables
  var usersArray = ['Bianchi', 'Rossi', 'Duzioni', 'Balsano', 'Verdi'];
  var usersArraySorted;
+ var usersInputRaw;
  var usersInput;
  var usersInputInArray;
  var fieldAfterOld;
@@ -20,8 +21,11 @@ var fieldAfterPos = document.getElementById('pos-after');
 
 //Force a non-empty input
  do {
-   usersInput = prompt('Your surname, sir?');
- } while (usersInput == '');
+   usersInputRaw = prompt('Your surname, sir?');
+ } while (usersInputRaw == '' || !isNaN(usersInputRaw) || usersInputRaw[0] == ' ');
+
+//Capitalize the first letter of the input
+usersInput = usersInputRaw[0].toUpperCase() + usersInputRaw.slice(1);
 
 //Add the input to the array and sort it, giving a before/after output
 usersArray.push(usersInput);
