@@ -25,26 +25,26 @@ var fieldAfterPos = document.getElementById('pos-after');
  } while (usersInputRaw == '' || !isNaN(usersInputRaw) || usersInputRaw[0] == ' ');
 
 //Capitalize the first letter of the input
-usersInput = usersInputRaw[0].toUpperCase() + usersInputRaw.slice(1);
+usersInput = usersInputRaw.charAt(0).toUpperCase() + usersInputRaw.slice(1);
 
 //Add the input to the array and sort it, giving a before/after output
 usersArray.push(usersInput);
 usersInputInArray =  usersArray.indexOf(usersInput);
 for (var i = 0; i < usersArray.length; i++) {
   fieldBeforeOld = fieldBefore.innerHTML;
-  fieldBefore.innerHTML = fieldBeforeOld + '<li>' + usersArray[i] + '</li>';
+  fieldBefore.innerHTML = fieldBeforeOld + '<li>' + (i+1) + '. ' + usersArray[i] + '</li>';
 }
 
-fieldBeforePos.innerHTML = 'Original position was ' + usersInputInArray;
+fieldBeforePos.innerHTML = 'Original position was ' + (usersInputInArray+1);
 
 //console.log('Original position was ', usersInputInArray, 'in the array ', usersArray);
 
 usersArraySorted = usersArray.sort();
 for (var i = 0; i < usersArraySorted.length; i++) {
   fieldAfterOld = fieldAfter.innerHTML;
-  fieldAfter.innerHTML = fieldAfterOld + '<li>' + usersArraySorted[i] + '</li>';
+  fieldAfter.innerHTML = fieldAfterOld + '<li>' + (i+1) + '. ' +  usersArraySorted[i] + '</li>';
 }
 
-fieldAfterPos.innerHTML = 'Sorted position is ' + usersArraySorted.indexOf(usersInput);
+fieldAfterPos.innerHTML = 'Sorted position is ' + (usersArraySorted.indexOf(usersInput)+1);
 
 //console.log('Sorted position is ', usersArraySorted.indexOf(usersInput), 'in the array ', usersArraySorted);
